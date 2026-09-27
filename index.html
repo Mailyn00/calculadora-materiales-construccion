@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ConstruCalc | Calculadora de materiales de construcción</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="assets/images/favicon.png?v=2">
+</head>
+<body>
+
+<header id="app-header" class="app-header oculto">
+  <div class="app-header__marca">
+    <img src="assets/images/logo.png" alt="Logotipo ConstruCalc" class="app-header__logo">
+    <span class="app-header__titulo">Construcalc</span>
+  </div>
+  <div class="app-header__usuario">
+    <span id="saludo-usuario" class="app-header__saludo"></span>
+    <button id="btn-salir-header" class="btn btn--fantasma">Cerrar sesión <span class="flecha">→</span></button>
+  </div>
+</header>
+
+<main id="app-main">
+
+  <section id="view-login" class="view view--auth">
+    <div class="tarjeta-auth">
+      <div class="tarjeta-auth__marca">
+        <img src="assets/images/logo.png" alt="Logotipo ConstruCalc" class="tarjeta-auth__logo">
+        <h1 class="tarjeta-auth__nombre">Construcalc</h1>
+        <p class="tarjeta-auth__lema">Materiales exactos, obra sin sorpresas</p>
+      </div>
+      <form id="form-login" class="formulario" novalidate>
+        <h2 class="formulario__titulo">Iniciar sesión</h2>
+        <label class="campo"><span class="campo__etiqueta">Usuario</span>
+          <input type="text" id="login-usuario" autocomplete="username" required></label>
+        <label class="campo"><span class="campo__etiqueta">Contraseña</span>
+          <input type="password" id="login-password" autocomplete="current-password" required></label>
+        <p id="login-error" class="mensaje mensaje--error oculto" role="alert"></p>
+        <button type="submit" class="btn btn--primario btn--ancho">Ingresar <span class="flecha">→</span></button>
+      </form>
+      <p class="tarjeta-auth__pie">¿No tienes cuenta? <button type="button" id="ir-a-registro" class="enlace">Crea una aquí</button></p>
+    </div>
+  </section>
+
+  <section id="view-registro" class="view view--auth oculto">
+    <div class="tarjeta-auth">
+      <div class="tarjeta-auth__marca">
+        <img src="assets/images/logo.png" alt="Logotipo ConstruCalc" class="tarjeta-auth__logo">
+        <h1 class="tarjeta-auth__nombre">Construcalc</h1>
+        <p class="tarjeta-auth__lema">Crea tu perfil de trabajo</p>
+      </div>
+      <form id="form-registro" class="formulario" novalidate>
+        <h2 class="formulario__titulo">Crear cuenta</h2>
+        <label class="campo"><span class="campo__etiqueta">Usuario</span>
+          <input type="text" id="registro-usuario" autocomplete="username" required></label>
+        <label class="campo"><span class="campo__etiqueta">Contraseña</span>
+          <input type="password" id="registro-password" autocomplete="new-password" minlength="4" required></label>
+        <label class="campo"><span class="campo__etiqueta">Perfil</span>
+          <select id="registro-rol" required>
+            <option value="" disabled selected>Elige tu perfil</option>
+            <option value="Administrador">Administrador de obra</option>
+            <option value="Operario">Operario / calculista</option>
+          </select></label>
+        <p id="registro-error" class="mensaje mensaje--error oculto" role="alert"></p>
+        <p id="registro-exito" class="mensaje mensaje--exito oculto" role="status"></p>
+        <button type="submit" class="btn btn--primario btn--ancho">Registrarme <span class="flecha">→</span></button>
+      </form>
+      <p class="tarjeta-auth__pie">¿Ya tienes cuenta? <button type="button" id="ir-a-login" class="enlace">Inicia sesión</button></p>
+    </div>
+  </section>
+
+  <section id="view-dashboard" class="view oculto">
+    <div class="contenedor">
+      <div class="dashboard__intro">
+        <h1 class="titulo-seccion">Panel de cálculos</h1>
+        <p class="texto-muted">Elige qué quieres calcular. Cada opción te va a pedir las medidas necesarias.</p>
+      </div>
+      <div id="grid-tarjetas" class="grid-tarjetas">
+        <article class="tarjeta-item tarjeta-item--salir" id="tarjeta-salir">
+          <h3 class="tarjeta-item__titulo">8. Salir</h3>
+          <p class="tarjeta-item__desc">Cerrar la sesión actual.</p>
+          <button type="button" id="btn-salir-dashboard" class="btn btn--fantasma">Salir <span class="flecha">→</span></button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div id="calc-views"></div>
+
+</main>
+
+<script src="js/app.js"></script>
+</body>
+</html>
